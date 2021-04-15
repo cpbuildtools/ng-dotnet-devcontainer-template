@@ -2,9 +2,10 @@
     "name": "ng.net",
     "remoteUser": "vscode",
     "workspaceFolder": "/home/vscode/workspaces",
-    "service": "ng-dotnet-devcontainer",
+    "service": "ngdotnet-devcontainer",
     "dockerComposeFile": [
-        "./docker-compose.yml"
+        "./docker-compose.yml",
+        "./docker-compose.override.yml"
     ],
     "settings": {},
     "extensions": []
