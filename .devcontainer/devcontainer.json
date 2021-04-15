@@ -7,6 +7,46 @@
         "./docker-compose.yml",
         "./docker-compose.override.yml"
     ],
-    "settings": {},
-    "extensions": []
+    "postCreateCommand": "cd ../devcontainer && yarn && yarn run devcontainer:create",
+    "settings": {
+
+
+    },
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-dotnettools.csharp",
+        "jongrant.csharpsortusings",
+        "patcx.vscode-nuget-gallery",
+        "aliasadidev.nugetpackagemanagergui",
+        "austincummings.razor-plus",
+        "jchannon.csharpextensions",
+        "icsharpcode.ilspy-vscode",
+
+        "angulardoc.angulardoc-vscode",
+        "angular.ng-template",
+        "gkalpak.aio-docs-utils",
+        "alexiv.vscode-angular2-files",
+        "steoates.autoimport",
+        
+        
+        "ebrithil30.vscode-ts-auto-return-type",
+        "dbaeumer.vscode-eslint",
+        "mariusalchimavicius.json-to-ts",
+
+
+        "ajithgopi.css-snippets",
+        "hediet.vscode-drawio",
+        "editorconfig.editorconfig",
+        "knisterpeter.vscode-github",
+        "eg2.vscode-npm-script",
+        "philosowaffle.openapi-designer",
+        "johnpapa.vscode-peacock",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "devondcarew.bazel-code",
+        "formulahendry.auto-rename-tag",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "streetsidesoftware.code-spell-checker"
+    ]
 }

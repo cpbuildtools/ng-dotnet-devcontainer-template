@@ -1,0 +1,7 @@
+{
+    "name": "devcontainer",
+    "private": true,
+    "scripts": {
+        "devcontainer:create": "ls"
+    }
+}
