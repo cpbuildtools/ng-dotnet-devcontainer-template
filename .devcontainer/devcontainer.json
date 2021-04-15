@@ -9,8 +9,7 @@
     ],
     "postCreateCommand": "cd ../devcontainer && yarn && yarn run devcontainer:create",
     "settings": {
-
-
+        "NugetGallery.credentialProviderFolder": "/home/vscode/.nuget/plugins/netcore/CredentialProvider.Microsoft"
     },
     "extensions": [
         "ms-azuretools.vscode-docker",
@@ -22,7 +21,6 @@
         "jchannon.csharpextensions",
         "icsharpcode.ilspy-vscode",
 
-        "angulardoc.angulardoc-vscode",
         "angular.ng-template",
         "gkalpak.aio-docs-utils",
         "alexiv.vscode-angular2-files",

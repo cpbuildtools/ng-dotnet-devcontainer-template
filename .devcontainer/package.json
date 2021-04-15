@@ -2,6 +2,11 @@
     "name": "devcontainer",
     "private": true,
     "scripts": {
-        "devcontainer:create": "ls"
+        "devcontainer:create": "run-p devcontainer:create:*",
+        "devcontainer:create:nuget-ideal": "dotnet nuget add source \"https://nuget.pkg.github.com/IdealSupply/index.json\" --name \"IdealSupply\" --username \"$GITHUB_USER\" --password \"$GITHUB_TOKEN\" --store-password-in-clear-text",
+        "devcontainer:create:npm-ideal": "yarn config set \"@idealsupply:registry\" \"npm.pkg.github.com\" -g && yarn config set \"//npm.pkg.github.com/\" \"_authToken=${GITHUB_TOKEN}\" -g "
+    },
+    "devDependencies": {
+        "npm-run-all2": "5.0.2"
     }
 }

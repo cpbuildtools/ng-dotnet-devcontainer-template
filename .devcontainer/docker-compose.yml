@@ -5,6 +5,10 @@ services:
         image: docker.pkg.github.com/cpbuildtools/angular-devcontainer/angular-devcontainer:latest
         user: "vscode:vscode"
         init: true
+        environment:
+            GITHUB_USER: ${GITHUB_USER}
+            GITHUB_TOKEN: ${GITHUB_TOKEN}
+            GITHUB_USER_TOKEN: ${GITHUB_TOKEN}
         volumes:
             # docker connection
             - /var/run/docker.sock:/var/run/docker-host.sock
@@ -19,6 +23,8 @@ services:
             # extensions
             - extensions:/home/vscode/.vscode-server/extensions
             - extensions-insiders:/home/vscode/.vscode-server-insiders/extensions
+            # nuget
+            - nuget:/home/vscode/.nuget/packages
 volumes:
     workspaces:
         driver: local
@@ -50,3 +56,11 @@ volumes:
         #    o: bind
         #    type: none
         #    device: ./.devcontainer/.cache/extensions-insiders
+
+    nuget:
+        # Uncomment below to perist nuget packages to disk
+        # driver: local
+        # driver_opts:
+        #    o: bind
+        #    type: none
+        #    device: ./.devcontainer/.cache/nuget
