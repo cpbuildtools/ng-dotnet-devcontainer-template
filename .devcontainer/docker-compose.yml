@@ -9,3 +9,7 @@ services:
             - /var/run/docker.sock:/var/run/docker-host.sock
             # workspace files
             - ../workspaces:/home/vscode/workspaces
+            # bash history
+            - ngdotnet-devcontainer-bashhistory:/commandhistory
+volumes:
+    ngdotnet-devcontainer-bashhistory:
