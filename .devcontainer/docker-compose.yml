@@ -1,15 +1,46 @@
-version: "3"
+version: "3.4"
 
 services:
-    ngdotnet-devcontainer:
+    devcontainer:
         image: docker.pkg.github.com/cpbuildtools/angular-devcontainer/angular-devcontainer:latest
         init: true
         volumes:
             # docker connection
             - /var/run/docker.sock:/var/run/docker-host.sock
             # workspace files
-            - ../workspaces:/home/vscode/workspaces
+            - workspaces:/home/vscode/workspaces:delegated
             # bash history
-            - ngdotnet-devcontainer-bashhistory:/commandhistory
+            - bashhistory:/commandhistory:delegated
+            # extensions
+            - extensions:/home/vscode/.vscode-server/extensions
+            - extensions-insiders:/home/vscode/.vscode-server-insiders/extensions
 volumes:
-    ngdotnet-devcontainer-bashhistory:
+    bashhistory:
+        # Uncomment below to perist bash history to disk
+        # driver: local
+        # driver_opts:
+        #    o: bind
+        #    type: none
+        #    device: ./.cache/bashhistory
+
+    workspaces:
+        driver: local
+        driver_opts:
+            o: bind
+            type: none
+            device: ../workspaces
+    extensions:
+        # Uncomment below to perist extensions to disk
+        # driver: local
+        # driver_opts:
+        #    o: bind
+        #    type: none
+        #    device: ./.cache/extensions
+
+    extensions-insiders:
+        # Uncomment below to perist extensions to disk
+        # driver: local
+        # driver_opts:
+        #    o: bind
+        #    type: none
+        #    device: ./.cache/extensions-insiders
