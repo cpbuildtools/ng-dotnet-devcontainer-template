@@ -1,2 +1,4 @@
+node_modules
 workspaces/*
 !workspaces/*.code-workspace
+!workspaces/workspace-repos.json
