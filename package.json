@@ -2,13 +2,16 @@
     "name": "devcontainer",
     "private": true,
     "scripts": {
-        "prepare": "husky install .devcontainer/husky",
+        "prepare": "run-s prepare:*",
+        "prepare:husky": "husky install .devcontainer/husky",
+        "prepare:repos": "ts-node .devcontainer/scripts/prepare-repos.ts",
         "precommit": "ts-node .devcontainer/scripts/precommit.ts"
     },
     "devDependencies": {
         "@types/node": "^14.14.41",
         "fast-glob": "^3.2.5",
         "husky": "^6.0.0",
+        "npm-run-all2": "^5.0.2",
         "simple-git": "^2.38.0",
         "ts-node": "^9.1.1",
         "typescript": "^4.2.4"

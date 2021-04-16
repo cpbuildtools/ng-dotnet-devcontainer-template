@@ -1,23 +1,24 @@
 import { sync } from 'fast-glob';
-import simpleGit, { } from 'simple-git';
-import * as Path from 'path';
 import * as Fs from 'fs/promises';
+import { existsSync } from 'node:fs';
+import { posix as Path } from 'path';
+import simpleGit from 'simple-git';
+import {
+    GIT_CONFIG_DIR,
+    IRemote,
+    IRepo,
+    PREPARED_REPOS_FILE,
+    WORKSPACE_DIR,
+    WORKSPACE_REPOS_FILE
+} from './common/types';
 
-
-interface IRemote {
-    name: string;
-    url: string;
-    fetch: string;
-}
-
-interface IRepo {
-    path: string;
-    remotes: IRemote[];
-}
 
 async function main() {
-    const gitPaths = sync('workspaces/*/.git/config');
-    const repos:IRepo[] = [];
+    if(!existsSync(PREPARED_REPOS_FILE)){
+        return;
+    }
+    const gitPaths = sync(Path.join(WORKSPACE_DIR, '*', GIT_CONFIG_DIR));
+    const repos: IRepo[] = [];
 
     for (const gitPath of gitPaths) {
         const path = Path.dirname(Path.dirname(gitPath));
@@ -30,7 +31,7 @@ async function main() {
         const configs = await git.listConfig();
 
         const remotes: Map<string, IRemote> = new Map();
-        const cfg = configs.values['.git/config'];
+        const cfg = configs.values[GIT_CONFIG_DIR];
         for (const key in cfg) {
             if (Object.prototype.hasOwnProperty.call(cfg, key)) {
                 const value = cfg[key];
@@ -51,9 +52,9 @@ async function main() {
         }
         repo.remotes = Array.from(remotes.values());
     }
-    await Fs.writeFile('workspaces/workspace-repos.json', JSON.stringify(repos, undefined, 2));
+    await Fs.writeFile(WORKSPACE_REPOS_FILE, JSON.stringify(repos, undefined, 2));
     const git = simpleGit('.');
-    await git.add('workspaces/workspace-repos.json');
+    await git.add(WORKSPACE_REPOS_FILE);
 }
 
 main();
