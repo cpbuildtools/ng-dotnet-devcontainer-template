@@ -1,6 +1,53 @@
 {
 	"folders": [
-		
+		{
+			"name": "Promotions-WebApp",
+			"path": "Promotions-WebApp"
+		},
+		{
+			"name": "Identity-Server",
+			"path": "Identity-Server"
+		},
+		{
+			"name": "Branches-Web-Service",
+			"path": "Branches-Web-Service"
+		},
+		{
+			"name": "Customers-Web-Service",
+			"path": "Customers-Web-Service"
+		},
+		{
+			"name": "Inventory-Web-Service",
+			"path": "Inventory-Web-Service"
+		},
+		{
+			"name": "ShopInShop-Web-Services",
+			"path": "ShopInShop-Web-Services"
+		},
+		{
+			"name": "ShoppingCart-Web-Service",
+			"path": "ShoppingCart-Web-Service"
+		},
+		{
+			"name": "Orders-Web-Service",
+			"path": "Orders-Web-Service"
+		},
+		{
+			"name": "Vendors-Web-Services",
+			"path": "Vendors-Web-Services"
+		},
+		{
+			"name": "dotnetlib-webservice-configuration",
+			"path": "dotnetlib-webservice-configuration"
+		},
+		{
+			"name": "dotnetlib-dataacess-as400",
+			"path": "dotnetlib-dataacess-as400"
+		},
+		{
+			"name": "dotnetlib-webservice-core",
+			"path": "dotnetlib-webservice-core"
+		}
 	],
 	"settings": {}
 }
