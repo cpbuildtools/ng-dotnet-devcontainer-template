@@ -2,7 +2,8 @@
     "name": "devcontainer",
     "private": true,
     "scripts": {
-        "prepare": "husky install .devcontainer/husky"
+        "prepare": "husky install .devcontainer/husky",
+        "precommit": "ls -al"
     },
     "devDependencies": {
         "husky": "^6.0.0"
