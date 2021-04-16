@@ -1,6 +1,6 @@
 import { sync } from 'fast-glob';
 import * as Fs from 'fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync } from 'fs';
 import { posix as Path } from 'path';
 import simpleGit from 'simple-git';
 import {
