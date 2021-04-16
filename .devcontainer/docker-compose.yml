@@ -12,6 +12,7 @@ services:
         volumes:
             # docker connection
             - /var/run/docker.sock:/var/run/docker-host.sock
+           
             # util package
             - type: bind
               source: ./package.json

@@ -7,6 +7,7 @@
         "./docker-compose.yml",
         "./docker-compose.override.yml"
     ],
+    "initializeCommand": ["yarn"],
     "postCreateCommand": "cd ../devcontainer && yarn && yarn run devcontainer:create",
     "settings": {
         "NugetGallery.credentialProviderFolder": "/home/vscode/.nuget/plugins/netcore/CredentialProvider.Microsoft"
